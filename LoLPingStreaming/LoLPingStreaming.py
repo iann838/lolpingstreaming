@@ -52,8 +52,8 @@ class App:
     def startcloudconn(self, needsync):
         sleep(1)
         if needsync:
-            self.runcloud = Popen([r'connfirebase.exe'], **subhelp.subprocess_args(True)).wait()
-            print('finished')
+            # self.runcloud = Popen([r'connfirebase.exe'], **subhelp.subprocess_args(True)).wait()
+            # print('finished')
             self.analizeversion()
         else:
             self.analizeversion()
