@@ -8,11 +8,11 @@ def createcmdfile():
     file_path = os.path.dirname(os.path.realpath(__file__))
     t = r'cd "'+ file_path + '"'
     s = r'start LoLPingStreaming.exe'
-    with open("startup.bat", "w+") as bat_file:
-        bat_file.write('@echo off\n')
-        bat_file.write(t)
-        bat_file.write('\n')
-        bat_file.write(s)
+    # with open("startup.bat", "w+") as bat_file:
+    #     bat_file.write('@echo off\n')
+    #     bat_file.write(t)
+    #     bat_file.write('\n')
+    #     bat_file.write(s)
 
 
 def startup(option):
@@ -20,20 +20,20 @@ def startup(option):
     file_path = os.path.dirname(os.path.realpath(__file__))
     startup_path = r'C:\Users\%s\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup' % USER_NAME
     createcmdfile()
-    if option:
-        thirdline = "strArgs = \"\"\"" + file_path + "\\startup.bat\"\"\"\n"
-        with open(startup_path + r'\LoLPingStreaming.vbs', 'w+') as vbs_file:
-            vbs_file.write('Set oShell = CreateObject ("Wscript.Shell")\n')
-            vbs_file.write('Dim strArgs\n')
-            vbs_file.write(thirdline)
-            vbs_file.write('oShell.Run strArgs, 0, false')
-    else:
-        os.chdir(startup_path)
-        try:
-            os.remove('LoLPingStreaming.vbs')
-        except:
-            pass
-        os.chdir(file_path)
+    # if option:
+    #     thirdline = "strArgs = \"\"\"" + file_path + "\\startup.bat\"\"\"\n"
+    #     with open(startup_path + r'\LoLPingStreaming.vbs', 'w+') as vbs_file:
+    #         vbs_file.write('Set oShell = CreateObject ("Wscript.Shell")\n')
+    #         vbs_file.write('Dim strArgs\n')
+    #         vbs_file.write(thirdline)
+    #         vbs_file.write('oShell.Run strArgs, 0, false')
+    # else:
+    #     os.chdir(startup_path)
+    #     try:
+    #         os.remove('LoLPingStreaming.vbs')
+    #     except:
+    #         pass
+    #     os.chdir(file_path)
 
 def findping(out, ind, ip):
     out = str(out)
